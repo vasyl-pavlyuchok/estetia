@@ -20,9 +20,9 @@ function App() {
       <Navbar openChat={openChat} />
       <Hero openChat={openChat} />
       <WhyChooseUs />
+      <AboutUs openChat={openChat} />
       <Treatments openChat={openChat} />
       <Faq />
-      <AboutUs openChat={openChat} />
       <CTA openChat={openChat} />
       <Footer />
 

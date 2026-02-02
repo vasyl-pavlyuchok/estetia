@@ -11,7 +11,7 @@ function Hero({ openChat }) {
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
          <img
-          src="https://i.postimg.cc/d37dJ7jf/Gemini-Generated-Image-6vjo66vjo66vjo66.png"
+          src="https://assets.zyrosite.com/mp86MKQeprTxrnEW/gemini_generated_image_6vjo66vjo66vjo66-wyuWewORMzamLtqk.png"
           alt="Mujer hermosa"
           className="w-full h-full object-cover"
         />
@@ -52,25 +52,25 @@ function Hero({ openChat }) {
           </div>
         </div>
 
-        <div ref={ref} className={`hidden md:block bg-gradient-to-br from-estetia-primary to-purple-700 text-white rounded-3xl shadow-2xl shadow-estetia-primary/30 p-8 max-w-sm ml-auto animate-fade-in-up relative overflow-hidden transition-all duration-500 hover:-translate-y-2`}>
+        <div ref={ref} className={`hidden md:block bg-gradient-to-br from-estetia-primary/[0.5] to-purple-700/[0.5] backdrop-blur-xl border border-white/10 shadow-lg rounded-3xl p-8 max-w-sm ml-auto animate-fade-in-up relative overflow-hidden transition-all duration-500 hover:-translate-y-2`}>
            <div className="absolute -top-10 -right-10 w-48 h-48 bg-white/10 rounded-full opacity-50"></div>
            <div className="absolute top-0 right-0 p-4 text-white/10">
              <Shield size={100} />
            </div>
            <div className="relative z-10">
-            <h3 className="text-2xl font-bold mb-3">Protocolo Estetia®</h3>
-            <p className="text-sm text-purple-200 mb-6">
+            <h3 className="text-2xl font-bold mb-3 text-white">Protocolo Estetia®</h3>
+            <p className="text-sm text-white mb-6">
               Combinamos láser, inyectables y dermocosmética en una sola sesión para maximizar resultados.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm">
-                <CheckCircle2 size={18} className="text-estetia-accent"/> <span className="text-purple-100">Diagnóstico Facial Avanzado</span>
+                <CheckCircle2 size={18} className="text-green-400"/> <span className="text-white">Diagnóstico Facial Avanzado</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <CheckCircle2 size={18} className="text-estetia-accent"/> <span className="text-purple-100">Plan Personalizado</span>
+                <CheckCircle2 size={18} className="text-green-400"/> <span className="text-white">Plan Personalizado</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
-                <CheckCircle2 size={18} className="text-estetia-accent"/> <span className="text-purple-100">Seguimiento Continuo y Personal</span>
+                <CheckCircle2 size={18} className="text-green-400"/> <span className="text-white">Seguimiento Continuo y Personal</span>
               </div>
             </div>
            </div>

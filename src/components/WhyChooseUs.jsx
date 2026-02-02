@@ -4,48 +4,55 @@ import { CheckCircle, Zap, Leaf } from 'lucide-react';
 const features = [
   {
     icon: <Zap className="h-8 w-8 text-estetia-primary" />,
-    title: 'Resultados Rápidos, Mínima Incomodidad',
-    description: 'Nuestra tecnología de vanguardia garantiza tratamientos eficaces y prácticamente indoloros, para que puedas volver a tu rutina sin interrupciones.',
+    title: 'Resultados Inmediatos',
+    description: 'Tecnología de vanguardia para tratamientos eficaces y prácticamente indoloros.',
   },
   {
     icon: <Leaf className="h-8 w-8 text-estetia-primary" />,
-    title: 'Tu Belleza, Respetada y Realzada',
-    description: 'Creemos en resultados que se ven y se sienten naturales. Nuestro enfoque es realzar tu propia belleza, no transformarla en algo que no eres.',
+    title: 'Belleza Natural y Genuina',
+    description: 'Realzamos tu belleza única, respetando tus rasgos para un resultado auténtico y natural.',
   },
   {
     icon: <CheckCircle className="h-8 w-8 text-estetia-primary" />,
-    title: 'Un Plan Creado Solo Para Ti',
-    description: 'Tu viaje empieza con un diagnóstico facial 3D. Entendemos tu piel a un nivel profundo para diseñar un plan de tratamiento único y a tu medida.',
+    title: 'Planes a Tu Medida',
+    description: 'Tras un diagnóstico facial 3D, creamos un plan de tratamiento exclusivo para ti.',
   },
 ];
 
 const WhyChooseUs = () => {
+  const cardStyle = "bg-white/60 backdrop-blur-lg shadow-xl rounded-3xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2";
+
   return (
-    <div className="py-24 bg-white sm:py-32">
+    <div 
+      className="py-24 sm:py-32 bg-cover bg-center"
+      style={{ backgroundImage: 'url(https://cdn.shopify.com/s/files/1/0657/3100/2634/files/papier-peint-imitation-marbre-blanc-avec-veinage-rose.jpg?v=1701428976)' }}
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-estetia-primary">NUESTRA FILOSOFÍA</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            La Diferencia Estetia
+          <h2 className="text-base font-semibold leading-7 text-estetia-primary">PROTOCOLO ESTETIA</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
+            La Excelencia es Nuestro Estándar
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Más que una clínica, somos tus aliados en el cuidado de la piel. Combinamos la ciencia, la ética y un trato humano para ofrecerte resultados en los que puedes confiar.
+            No solo cumplimos con los más altos estándares, los definimos. Cada tratamiento es una obra de arte, respaldada por la ciencia y un cuidado excepcional.
           </p>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-5xl">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             {features.map((feature) => (
-              <div key={feature.title} className="relative pl-16">
-                <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-estetia-bg">
-                    {feature.icon}
-                  </div>
-                  {feature.title}
-                </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+              <div key={feature.title} className={cardStyle}>
+                <div className="relative pl-16">
+                  <dt className="text-lg font-semibold leading-7 text-gray-800">
+                    <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
+                      {feature.icon}
+                    </div>
+                    {feature.title}
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+                </div>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </div>

@@ -1,46 +1,41 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
-function AboutUs({ openChat }) {
-  const cardStyle = "bg-white shadow-2xl rounded-3xl overflow-hidden";
+const AboutUs = ({ openChat }) => {
+  const glassButton = "bg-estetia-primary/90 hover:bg-estetia-primary text-white backdrop-blur-xl shadow-lg hover:shadow-estetia-primary/40 transition-all duration-300 rounded-full px-6 py-3 font-medium flex items-center gap-2 text-sm";
 
   return (
-    <section id="equipo" className="py-24 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className={`grid md:grid-cols-2 gap-16 items-center ${cardStyle} p-8 md:p-12`}>
-          <div className="relative">
+    <div id="equipo" className="py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="flex justify-center lg:justify-start">
             <img 
-              src="https://i.postimg.cc/2y7SnrGJ/Gemini-Generated-Image-druivrdruivrdrui.png" 
-              alt="Dra. Elena" 
-              className="relative rounded-2xl shadow-lg w-full h-[500px] object-cover"
+              src="https://assets.zyrosite.com/mp86MKQeprTxrnEW/gemini_generated_image_druivrdruivrdrui-AFkaihKa3OwdsXxG.png"
+              alt="Dra. Ana Pérez"
+              className="rounded-3xl shadow-2xl w-full max-w-md object-cover aspect-[3/4]"
             />
           </div>
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-light text-estetia-text">
-              "La belleza real es <br/><span className="font-bold">salud visible</span>."
-            </h2>
-            <p className="text-gray-600 leading-relaxed text-lg">
-              Soy la Dra. Elena R., directora médica de Estetia. Tras 15 años en Londres y Madrid, fundé esta clínica con una obsesión: resultados que se noten, pero que no se vean artificiales.
+          <div className="text-center lg:text-left">
+            <h2 className="text-base font-semibold leading-7 text-estetia-primary">NUESTRA FUNDADORA</h2>
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              Dra. Ana Pérez
             </p>
-            <div className="grid grid-cols-2 gap-6 pt-4">
-              <div>
-                <h4 className="font-bold text-2xl text-estetia-primary">15</h4>
-                <p className="text-xs uppercase tracking-wider text-estetia-text">Años Experiencia</p>
-              </div>
-              <div>
-                <h4 className="font-bold text-2xl text-estetia-primary">2.4k</h4>
-                <p className="text-xs uppercase tracking-wider text-estetia-text">Pacientes</p>
-              </div>
-            </div>
-            <div className="pt-6">
-               <button onClick={openChat} className="border border-estetia-text px-8 py-3 rounded-full hover:bg-estetia-text hover:text-white transition-all duration-300">
-                 Conocer Filosofía
-               </button>
+            <p className="mt-4 text-lg font-medium text-gray-300">
+              Médico Estético y Especialista en Armonización Facial
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-200">
+              Con más de 15 años de experiencia, la Dra. Pérez es una referencia en medicina estética. Su filosofía se basa en la búsqueda de resultados naturales y armónicos, utilizando las técnicas más avanzadas para realzar la belleza individual de cada paciente. Es miembro de la SEME y ponente habitual en congresos internacionales.
+            </p>
+            <div className="mt-8 flex justify-center lg:justify-start">
+               <button onClick={openChat} className={glassButton}>
+                Conocer Filosofía <ArrowRight size={16} />
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
 
 export default AboutUs;
