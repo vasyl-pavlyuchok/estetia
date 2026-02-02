@@ -11,8 +11,8 @@ function Hero({ openChat }) {
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
          <img
-          src="https://images.unsplash.com/photo-1612964311894-515a86614399?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Fondo de mármol blanco con vetas suaves"
+          src="https://i.postimg.cc/d37dJ7jf/Gemini-Generated-Image-6vjo66vjo66vjo66.png"
+          alt="Mujer hermosa"
           className="w-full h-full object-cover"
         />
       </div>
