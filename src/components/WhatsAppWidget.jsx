@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
-function WhatsAppWidget({ phoneNumber = '+34644588923', message = 'Hola! Me gustaría saber más sobre vuestros tratamientos.' }) {
-  const [isOpen, setIsOpen] = useState(false);
+// El estado (isOpen, setIsOpen) ahora se pasa como prop para controlarlo desde App.jsx
+function WhatsAppWidget({ 
+  isOpen, 
+  setIsOpen, 
+  isCTAInView, // Nueva prop para saber si la sección CTA está visible
+  phoneNumber = '+34644588923', 
+  message = 'Hola! Me gustaría saber más sobre vuestros tratamientos.' 
+}) {
   const [isClosing, setIsClosing] = useState(false);
+
+  // Efecto para manejar el cierre con animación
+  useEffect(() => {
+    if (!isOpen && isClosing) {
+      const timer = setTimeout(() => {
+        setIsClosing(false);
+      }, 300); // Coincide con la duración de la animación
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, isClosing]);
 
   const openChat = () => {
     setIsOpen(true);
-    setIsClosing(false);
   };
 
   const closeChat = () => {
     setIsClosing(true);
+    // Retrasamos el setIsOpen(false) para dar tiempo a la animación de salida
     setTimeout(() => {
       setIsOpen(false);
-    }, 300); // Duración de la animación de salida
+    }, 300);
   };
 
   const handleSend = () => {
@@ -23,16 +39,20 @@ function WhatsAppWidget({ phoneNumber = '+34644588923', message = 'Hola! Me gust
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
   };
 
-  const buttonClass = `bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-transform transform hover:scale-110`;
+  // Clases para el botón flotante con transiciones
+  const buttonVisibilityClass = isCTAInView ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100';
+  const buttonClass = `bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform ${buttonVisibilityClass}`;
 
   return (
     <>
+      {/* El botón flotante ahora se oculta con una transición si isCTAInView es true */}
       {!isOpen && (
         <button onClick={openChat} className={`fixed bottom-6 right-6 z-50 ${buttonClass}`}>
           <FaWhatsapp size={28} />
         </button>
       )}
 
+      {/* La ventana de chat usa el estado `isOpen` del componente padre */}
       {isOpen && (
         <div className={`fixed bottom-6 right-6 z-50 w-80 md:w-96 ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`}>
           <div className="bg-white rounded-xl shadow-2xl border border-gray-200/50 overflow-hidden">
