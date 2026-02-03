@@ -3,6 +3,7 @@ import WhatsAppWidget from './components/WhatsAppWidget';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhyChooseUs from './components/WhyChooseUs';
+import Testimonials from './components/Testimonials';
 import Treatments from './components/Treatments';
 import Faq from './components/Faq';
 import AboutUs from './components/AboutUs';
@@ -23,6 +24,7 @@ function App() {
       <AboutUs openChat={openChat} />
       <Treatments openChat={openChat} />
       <Faq />
+      <Testimonials />
       <CTA openChat={openChat} />
       <Footer />
 

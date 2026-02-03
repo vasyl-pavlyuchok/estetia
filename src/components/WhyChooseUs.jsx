@@ -24,10 +24,12 @@ const WhyChooseUs = () => {
 
   return (
     <div 
-      className="py-24 sm:py-32 bg-cover bg-center"
+      className="relative py-24 sm:py-32 bg-cover bg-center"
       style={{ backgroundImage: 'url(https://cdn.shopify.com/s/files/1/0657/3100/2634/files/papier-peint-imitation-marbre-blanc-avec-veinage-rose.jpg?v=1701428976)' }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="absolute inset-0 bg-estetia-bg/70"></div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-estetia-primary">PROTOCOLO ESTETIA</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
