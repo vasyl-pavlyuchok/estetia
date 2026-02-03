@@ -34,7 +34,7 @@ function Hero({ openChat }) {
 
           <div className="flex flex-wrap gap-4 pt-4">
             <button onClick={openChat} className={glassButton}>
-              Iniciar Evaluación IA <ArrowRight size={18} />
+            Contacta con Estetia <ArrowRight size={18} />
             </button>
             <div className="flex items-center gap-4 px-6 py-4 rounded-xl bg-white/50 backdrop-blur-sm border border-white/60">
               <div className="flex -space-x-3">
