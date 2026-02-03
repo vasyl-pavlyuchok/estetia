@@ -23,8 +23,8 @@ function App() {
       <WhyChooseUs />
       <AboutUs openChat={openChat} />
       <Treatments openChat={openChat} />
-      <Faq />
       <Testimonials />
+      <Faq />
       <CTA openChat={openChat} />
       <Footer />
 

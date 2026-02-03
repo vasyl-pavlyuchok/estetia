@@ -1,38 +1,33 @@
 import React from 'react';
-import { CheckCircle, Zap, Leaf } from 'lucide-react';
+import { BrainCircuit, HeartHandshake, Microscope } from 'lucide-react';
 
 const features = [
   {
-    icon: <Zap className="h-8 w-8 text-estetia-primary" />,
-    title: 'Resultados Inmediatos',
-    description: 'Tecnología de vanguardia para tratamientos eficaces y prácticamente indoloros.',
+    title: 'Diagnóstico Avanzado',
+    description: 'Utilizamos tecnología de vanguardia para analizar tu piel y entender tus necesidades únicas.',
+    icon: <BrainCircuit className="h-8 w-8 text-white" />,
   },
   {
-    icon: <Leaf className="h-8 w-8 text-estetia-primary" />,
-    title: 'Belleza Natural y Genuina',
-    description: 'Realzamos tu belleza única, respetando tus rasgos para un resultado auténtico y natural.',
+    title: 'Tecnología de Vanguardia',
+    description: 'Solo empleamos aparatología de grado médico, certificada y avalada por estudios científicos.',
+    icon: <Microscope className="h-8 w-8 text-white" />,
   },
   {
-    icon: <CheckCircle className="h-8 w-8 text-estetia-primary" />,
-    title: 'Planes a Tu Medida',
-    description: 'Tras un diagnóstico facial 3D, creamos un plan de tratamiento exclusivo para ti.',
+    title: 'Cuidado y Seguimiento',
+    description: 'Realizamos un seguimiento exhaustivo para asegurar que los resultados sean óptimos y duraderos.',
+    icon: <HeartHandshake className="h-8 w-8 text-white" />,
   },
 ];
 
 const WhyChooseUs = () => {
-  const cardStyle = "bg-white/60 backdrop-blur-lg shadow-xl rounded-3xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2";
+  const cardStyle = "bg-estetia-primary/[0.8] backdrop-blur-lg border border-white/10 shadow-2xl rounded-3xl p-8 h-full transition-all duration-500 hover:shadow-estetia-primary/40 hover:-translate-y-2 flex flex-col items-center text-center";
 
   return (
-    <div 
-      className="relative py-24 sm:py-32 bg-cover bg-center"
-      style={{ backgroundImage: 'url(https://cdn.shopify.com/s/files/1/0657/3100/2634/files/papier-peint-imitation-marbre-blanc-avec-veinage-rose.jpg?v=1701428976)' }}
-    >
-      <div className="absolute inset-0 bg-estetia-bg/70"></div>
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-estetia-primary">PROTOCOLO ESTETIA</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             La Excelencia es Nuestro Estándar
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -40,18 +35,16 @@ const WhyChooseUs = () => {
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-5xl">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3 lg:gap-y-16">
             {features.map((feature) => (
               <div key={feature.title} className={cardStyle}>
-                <div className="relative pl-16">
-                  <dt className="text-lg font-semibold leading-7 text-gray-800">
-                    <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
-                      {feature.icon}
-                    </div>
-                    {feature.title}
-                  </dt>
-                  <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 mb-6">
+                  {feature.icon}
                 </div>
+                <h3 className="text-lg font-semibold leading-7 text-white">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-base leading-7 text-white/100">{feature.description}</p>
               </div>
             ))}
           </div>
