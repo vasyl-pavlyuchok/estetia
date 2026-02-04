@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/estetia/', // 👈 Asegúrate de incluir las barras al principio y al final
+  // Usa '/estetia/' solo en producción (GitHub), de lo contrario usa la raíz '/'
+  base: process.env.NODE_ENV === 'production' ? '/estetia/' : '/',
 })
