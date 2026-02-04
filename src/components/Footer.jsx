@@ -1,85 +1,89 @@
-
 import React from 'react';
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
-
-const socialLinks = [
-  { name: 'Facebook', href: '#', icon: Facebook },
-  { name: 'Instagram', href: '#', icon: Instagram },
-  { name: 'Twitter', href: '#', icon: Twitter },
-  { name: 'Linkedin', href: '#', icon: Linkedin },
-];
+import { Instagram, Linkedin, Mail, Share2 } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer 
-      className="bg-gray-900 bg-cover bg-center bg-blend-overlay text-gray-300"
-      style={{
-        backgroundImage: 'url(https://images.unsplash.com/photo-1561835491-952271cf9537?q=80&w=2070&auto=format&fit=crop)',
-        backgroundColor: 'rgba(17, 24, 39, 0,9)' // bg-gray-900 with 95% opacity
-      }}
+      className="bg-estetia-secondary text-estetia-text pt-16 pb-8 sm:pt-24 sm:pb-5"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">Footer</h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8">
-        <div className="md:grid md:grid-cols-4 md:gap-8">
-          
-          {/* Brand and Address */}
-          <div className="space-y-8">
-            <h3 className="text-xl font-bold text-white">Estetia</h3>
-            <p className="text-sm leading-6">La vanguardia de la belleza y el bienestar.</p>
-            <div className="space-y-2 text-sm">
-                <p>Calle Ficticia 123, Oficina 4B</p>
-                <p>San Francisco, CA 94102</p>
-                <p>contacto@estetia.com</p>
-            </div>
-          </div>
-          
-          {/* Links */}
-          <div className="mt-16 grid grid-cols-2 gap-8 md:col-span-2 md:mt-0">
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">Tratamientos</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Láser Facial</a></li>
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Remodelación Corporal</a></li>
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Depilación Definitiva</a></li>
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Bienestar y Nutrición</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">Empresa</h3>
-              <ul role="list" className="mt-6 space-y-4">
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Sobre Nosotros</a></li>
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Protocolo Estetia</a></li>
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Opiniones</a></li>
-                <li><a href="#" className="text-sm leading-6 hover:text-white transition-colors">Contacto</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="mt-10 md:mt-0">
-            <h3 className="text-sm font-semibold leading-6 text-white">Suscríbete a nuestra newsletter</h3>
-            <form className="mt-6 sm:flex sm:max-w-md">
-              <label htmlFor="email-address" className="sr-only">Dirección de email</label>
-              <input type="email" name="email-address" id="email-address" autoComplete="email" required className="w-full min-w-0 appearance-none rounded-md border-0 bg-white/5 px-3 py-2 text-base text-white shadow-sm ring-1 ring-inset ring-white/10 placeholder:text-gray-500 focus:ring-2 focus:ring-inset focus:ring-estetia-primary sm:w-64 sm:text-sm sm:leading-6 xl:w-full" placeholder="Introduce tu email" />
-              <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                <button type="submit" className="flex w-full items-center justify-center rounded-md bg-estetia-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-estetia-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-estetia-primary transition-colors">Suscribirme</button>
-              </div>
-            </form>
-          </div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        
+        <div className="flex justify-center text-center mb-16">
+          <h3 className="text-4xl font-extrabold text-estetia-accent tracking-tight">Estetia</h3>
         </div>
 
-        {/* Copyright y Redes Sociales */}
-        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:flex lg:items-center lg:justify-between">
-          <div className="flex space-x-6 lg:order-2">
-            {socialLinks.map((item) => (
-              <a key={item.name} href={item.href} className="text-gray-500 hover:text-gray-400 transition-colors">
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
-            ))}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-8">
+          
+          {/* Columna 1: Tratamientos Faciales */}
+          <div>
+            <h3 className="text-lg font-semibold leading-7 text-estetia-text">Tratamientos Faciales</h3>
+            <ul role="list" className="mt-6 space-y-4">
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Diagnóstico Facial Avanzado</a></li>
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Rejuvenecimiento con Láser (IPL)</a></li>
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Bioestimuladores de Colágeno</a></li>
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Peeling Químico Médico</a></li>
+            </ul>
           </div>
-          <p className="mt-8 text-xs leading-5 text-gray-500 lg:order-1 lg:mt-0">&copy; 2024 Estetia. Todos los derechos reservados.</p>
+
+          {/* Columna 2: Tratamientos Corporales */}
+          <div>
+            <h3 className="text-lg font-semibold leading-7 text-estetia-text">Tratamientos Corporales</h3>
+            <ul role="list" className="mt-6 space-y-4">
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Remodelación Corporal Avanzada</a></li>
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Depilación Láser de Diodo</a></li>
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Tratamiento para la Celulitis</a></li>
+              <li><a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Presoterapia Avanzada</a></li>
+            </ul>
+          </div>
+          
+          {/* Columna 3: Contáctame */}
+          <div>
+            <h3 className="text-lg font-semibold leading-7 text-estetia-text">Contáctame</h3>
+            <ul role="list" className="mt-6 space-y-4">
+              <li className="flex items-center space-x-2">
+                <Mail className="h-5 w-5 text-estetia-accent" />
+                <a href="mailto:info@estetia.com" className="text-sm leading-6 hover:text-estetia-accent transition-colors">info@estetia.com</a>
+              </li>
+              <li className="text-sm leading-6">
+                <p>Calle Serrano 45, Oficina 3A</p>
+                <p>28001 Madrid, España</p>
+              </li>
+            </ul>
+          </div>
+
+          {/* Columna 4: Mis Redes Sociales */}
+          <div>
+            <h3 className="text-lg font-semibold leading-7 text-estetia-text">Mis Redes Sociales</h3>
+            <ul role="list" className="mt-6 space-y-4">
+              <li className="flex items-center space-x-2">
+                <Instagram className="h-5 w-5 text-estetia-accent" />
+                <a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">@estetia_clinic</a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Share2 className="h-5 w-5 text-estetia-accent" />
+                <a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">@estetia_official</a>
+              </li>
+               <li className="flex items-center space-x-2">
+                <Linkedin className="h-5 w-5 text-estetia-accent" />
+                <a href="#" className="text-sm leading-6 hover:text-estetia-accent transition-colors">Estetia en LinkedIn</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div className="mt-16 border-t border-estetia-text/20 pt-8 sm:mt-20 flex flex-col items-center justify-between lg:flex-row">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm leading-6 text-estetia-text/80">
+            <a href="#" className="hover:text-estetia-accent transition-colors">Política de Privacidad</a>
+            <a href="#" className="hover:text-estetia-accent transition-colors">Aviso Legal</a>
+            <a href="#" className="hover:text-estetia-accent transition-colors">Política de Cookies</a>
+            <a href="#" className="hover:text-estetia-accent transition-colors">Mapa del sitio</a>
+          </div>
+          <div className="mt-8 text-xs leading-5 text-estetia-text/50 lg:order-1 lg:mt-0">
+            <p>&copy; 2026 Estetia. Todos los derechos reservados. Diseñado por Vasyl Pavlyuchok.</p>
+          </div>
         </div>
       </div>
     </footer>
