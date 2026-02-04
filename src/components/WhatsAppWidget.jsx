@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { X, Send, Sparkles, CalendarPlus, Info, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -7,7 +6,7 @@ function WhatsAppWidget({
   isOpen,
   setIsOpen,
   isCTAInView,
-  phoneNumber = '+447452339418',
+  phoneNumber = '447452339418',
   message = '¡Hola! Vengo de la web de Estetia y me gustaría solicitar más información.'
 }) {
   const [isClosing, setIsClosing] = useState(false);
@@ -95,13 +94,13 @@ function WhatsAppWidget({
                     className="mt-1 h-4 w-4 rounded border-gray-400 text-estetia-accent focus:ring-estetia-accent"
                  />
                  <label htmlFor="privacy-check" className="text-xs text-gray-700">
-                    Acepto la <Link to="/politica-de-privacidad" target="_blank" rel="noopener noreferrer" className="underline hover:text-estetia-accent">Política de Privacidad</Link> y el tratamiento de mis datos.
+                    Acepto la <a href="/politica-de-privacidad" target="_blank" rel="noopener noreferrer" className="underline hover:text-estetia-accent">Política de Privacidad</a> y el tratamiento de mis datos.
                     <span className="block mt-2 text-gray-600/90">
                       <strong className="block mb-1 text-gray-700">Información básica sobre protección de datos:</strong>
                       <strong>Responsable:</strong> Estetia.<br/>
                       <strong>Finalidad:</strong> Atender tu solicitud.<br/>
                       <strong>Base legal:</strong> Tu consentimiento.<br/>
-                      <strong>Derechos:</strong> Puedes ejercer tus derechos en <a href="mailto:privacy@estetia.com" className="underline hover:text-estetia-accent">privacy@estetia.com</a>.
+                      <strong>Derechos:</strong> Puedes ejercer tus derechos en <a href="mailto:privacidad@estetia.io" className="underline hover:text-estetia-accent">privacy@estetia.com</a>.
                     </span>
                  </label>
                </div>
