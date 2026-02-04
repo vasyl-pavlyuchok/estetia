@@ -42,7 +42,7 @@ const Faq = () => {
           </div>
           <dl className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="rounded-2xl bg-estetia-bg/60 p-6 shadow-sm">
+              <div key={index} className="rounded-2xl bg-estetia-secondary p-6 shadow-sm">
                 <dt>
                   <button
                     onClick={() => toggleFaq(index)}

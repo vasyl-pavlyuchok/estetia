@@ -1,89 +1,127 @@
 import React, { useState, useEffect } from 'react';
-import { X, Send } from 'lucide-react';
+import { X, Send, Sparkles, CalendarPlus, Info, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
-// El estado (isOpen, setIsOpen) ahora se pasa como prop para controlarlo desde App.jsx
-function WhatsAppWidget({ 
-  isOpen, 
-  setIsOpen, 
-  isCTAInView, // Nueva prop para saber si la sección CTA está visible
-  phoneNumber = '+34644588923', 
-  message = 'Hola! Me gustaría saber más sobre vuestros tratamientos.' 
+function WhatsAppWidget({
+  isOpen,
+  setIsOpen,
+  isCTAInView,
+  phoneNumber = '34000000000',
+  message = '¡Hola! Vengo de la web de Estetia y me gustaría solicitar más información.'
 }) {
   const [isClosing, setIsClosing] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
-  // Efecto para manejar el cierre con animación
   useEffect(() => {
-    if (!isOpen && isClosing) {
-      const timer = setTimeout(() => {
-        setIsClosing(false);
-      }, 300); // Coincide con la duración de la animación
-      return () => clearTimeout(timer);
+    if (!isOpen) {
+      setIsClosing(false);
+      setIsChecked(false);
     }
-  }, [isOpen, isClosing]);
+  }, [isOpen]);
 
   const openChat = () => {
     setIsOpen(true);
+    setIsClosing(false);
   };
 
   const closeChat = () => {
     setIsClosing(true);
-    // Retrasamos el setIsOpen(false) para dar tiempo a la animación de salida
     setTimeout(() => {
       setIsOpen(false);
     }, 300);
   };
 
-  const handleSend = () => {
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-  };
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-  // Clases para el botón flotante con transiciones
   const buttonVisibilityClass = isCTAInView ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100';
-  const buttonClass = `bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform ${buttonVisibilityClass}`;
+  const buttonClass = `bg-green-500 text-white rounded-full p-3.5 shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform ${buttonVisibilityClass}`;
+
+  const animationClass = isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up';
 
   return (
     <>
-      {/* El botón flotante ahora se oculta con una transición si isCTAInView es true */}
-      {!isOpen && (
-        <button onClick={openChat} className={`fixed bottom-6 right-6 z-50 ${buttonClass}`}>
-          <FaWhatsapp size={38} />
+      {!isOpen && !isClosing && (
+        <button onClick={openChat} className={`fixed bottom-6 right-6 z-50 ${buttonClass}`} aria-label="Abrir chat de WhatsApp">
+          <FaWhatsapp size={32} />
         </button>
       )}
 
-      {/* La ventana de chat usa el estado `isOpen` del componente padre */}
-      {isOpen && (
-        <div className={`fixed bottom-6 right-6 z-50 w-80 md:w-96 ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`}>
-          <div className="bg-white rounded-xl shadow-2xl border border-gray-200/50 overflow-hidden">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-4 text-white flex justify-between items-center">
+      {(isOpen || isClosing) && (
+        <div className={`fixed bottom-6 right-6 w-[calc(100%-3rem)] max-w-sm font-sans z-50 ${animationClass}`}>
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200/50 flex flex-col overflow-hidden">
+            
+            <header className="bg-estetia-accent text-white p-4 flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <FaWhatsapp size={24} />
-                <h3 className="font-bold text-lg">WhatsApp Chat</h3>
+                <MessageCircle size={24} />
+                <h3 className="font-bold text-lg">Estetia Chat</h3>
               </div>
-              <button onClick={closeChat} className="text-white/80 hover:text-white transition-opacity">
-                <X size={24} />
+              <button onClick={closeChat} className="p-1 rounded-full hover:bg-white/20 transition-colors" aria-label="Cerrar chat">
+                <X size={20} />
               </button>
-            </div>
+            </header>
 
-            {/* Chat Body */}
-            <div className="p-4 bg-gray-50/50">
-              <div className="bg-white p-3 rounded-lg shadow-sm border max-w-xs">
-                <p className="text-sm text-gray-700">¡Hola! 👋</p>
-                <p className="text-sm text-gray-700 mt-1">¿Necesitas ayuda? Escríbenos para una consulta gratuita.</p>
+            <main className="p-5 flex flex-col gap-4 bg-slate-200">
+              <div className="bg-white p-4 rounded-xl shadow-sm self-start w-full">
+                <h4 className="font-bold text-gray-800 text-md">Tu canal directo con Estetia</h4>
+                <p className="text-gray-600 text-sm mt-1">
+                  Bienvenido/a. Estás a un mensaje de recibir atención personalizada. Escríbenos y te responderemos lo antes posible.
+                </p>
               </div>
-            </div>
+              
+              <div className="bg-white p-4 rounded-xl shadow-sm flex flex-col gap-3 text-sm text-gray-700">
+                 <div className="flex items-center gap-3">
+                    <Sparkles className="h-5 w-5 text-estetia-accent" />
+                    <span>Conocer nuestros tratamientos</span>
+                 </div>
+                 <div className="flex items-center gap-3">
+                    <CalendarPlus className="h-5 w-5 text-estetia-accent" />
+                    <span>Agendar una cita de valoración</span>
+                 </div>
+                 <div className="flex items-center gap-3">
+                    <Info className="h-5 w-5 text-estetia-accent" />
+                    <span>Consultar con un especialista</span>
+                 </div>
+              </div>
+            </main>
 
-            {/* Footer / Call to action */}
-            <div className="p-4 bg-gray-100/60">
-              <button 
-                onClick={handleSend} 
-                className="w-full flex items-center justify-center gap-2 bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-600 transition-all transform hover:scale-105">
-                <FaWhatsapp size={20} />
-                Iniciar Chat
-              </button>
-            </div>
+            <footer className="p-5 border-t border-slate-300 bg-slate-200">
+               <div className="flex items-start gap-3">
+                 <input 
+                    type="checkbox"
+                    id="privacy-check"
+                    checked={isChecked}
+                    onChange={() => setIsChecked(!isChecked)}
+                    className="mt-1 h-4 w-4 rounded border-gray-400 text-estetia-accent focus:ring-estetia-accent"
+                 />
+                 <label htmlFor="privacy-check" className="text-xs text-gray-700">
+                    Acepto la <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-estetia-accent">Política de Privacidad</a> y el tratamiento de mis datos.
+                    <span className="block mt-2 text-gray-600/90">
+                      <strong className="block mb-1 text-gray-700">Información básica sobre protección de datos:</strong>
+                      <strong>Responsable:</strong> Estetia.<br/>
+                      <strong>Finalidad:</strong> Atender tu solicitud.<br/>
+                      <strong>Base legal:</strong> Tu consentimiento.<br/>
+                      <strong>Derechos:</strong> Puedes ejercer tus derechos en <a href="mailto:legal@estetia.com" className="underline hover:text-estetia-accent">legal@estetia.com</a>.
+                    </span>
+                 </label>
+               </div>
+               
+               <a
+                 href={whatsappUrl}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className={`mt-4 w-full flex items-center justify-center gap-3 px-4 py-3 font-bold text-white rounded-lg transition-all duration-300 ${ 
+                    isChecked 
+                    ? 'bg-estetia-accent hover:brightness-95 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5' 
+                    : 'bg-slate-400 cursor-not-allowed'
+                 }`}
+                 onClick={(e) => !isChecked && e.preventDefault()}
+                 aria-disabled={!isChecked}
+               >
+                 Abrir WhatsApp
+                 <Send size={18} />
+               </a>
+            </footer>
+
           </div>
         </div>
       )}

@@ -32,7 +32,6 @@ const CTA = ({ openChat }) => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center text-center">
           
-          {/* Título y Subtítulo Principal */}
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Tu camino hacia la belleza y bienestar, ahora más fácil
@@ -42,20 +41,18 @@ const CTA = ({ openChat }) => {
             </p>
           </div>
 
-          {/* Tres Tarjetas de Detalle */}
           <div className="mt-16 grid grid-cols-1 gap-8 text-left sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {actionItems.map((item) => (
-              <div key={item.title} className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl rounded-3xl p-8 flex flex-col">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/20 mb-6">
-                  <item.icon className="h-7 w-7 text-white" aria-hidden="true" />
+              <div key={item.title} className="bg-white/50 backdrop-blur-lg shadow-2xl rounded-3xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-2">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-estetia-accent/10 mb-6">
+                  <item.icon className="h-7 w-7 text-estetia-accent" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-semibold leading-7 text-white">{item.title}</h3>
-                <p className="mt-2 text-base leading-7 text-white/80 flex-grow">{item.description}</p>
+                <h3 className="text-lg font-semibold leading-7 text-estetia-dark">{item.title}</h3>
+                <p className="mt-2 text-base leading-7 text-gray-600 flex-grow">{item.description}</p>
               </div>
             ))}
           </div>
 
-          {/* Bloque de Seguridad y Tecnología */}
           <div className="mt-20 max-w-2xl mx-auto flex flex-col items-center gap-6">
             <p className="text-lg leading-8 text-white">
               En Estetia, integramos la última tecnología para ofrecerte una experiencia superior. Nuestro asistente IA en WhatsApp garantiza respuestas rápidas y eficientes para tus consultas más comunes.
@@ -66,7 +63,6 @@ const CTA = ({ openChat }) => {
             </div>
           </div>
 
-          {/* Botón de Llamada a la Acción (WhatsApp) */}
           <div className="mt-16">
             <button
               onClick={openChat}
