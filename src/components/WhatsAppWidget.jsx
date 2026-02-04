@@ -48,7 +48,7 @@ function WhatsAppWidget({
       {/* El botón flotante ahora se oculta con una transición si isCTAInView es true */}
       {!isOpen && (
         <button onClick={openChat} className={`fixed bottom-6 right-6 z-50 ${buttonClass}`}>
-          <FaWhatsapp size={28} />
+          <FaWhatsapp size={38} />
         </button>
       )}
 
