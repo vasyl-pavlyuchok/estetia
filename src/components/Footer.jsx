@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail, Share2 } from 'lucide-react';
 
 const Footer = () => {
@@ -16,7 +17,6 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-8">
           
-          {/* Columna 1: Tratamientos Faciales */}
           <div>
             <h3 className="text-lg font-semibold leading-7 text-estetia-text">Tratamientos Faciales</h3>
             <ul role="list" className="mt-6 space-y-4">
@@ -27,7 +27,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 2: Tratamientos Corporales */}
           <div>
             <h3 className="text-lg font-semibold leading-7 text-estetia-text">Tratamientos Corporales</h3>
             <ul role="list" className="mt-6 space-y-4">
@@ -38,7 +37,6 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Columna 3: Contáctame */}
           <div>
             <h3 className="text-lg font-semibold leading-7 text-estetia-text">Contáctame</h3>
             <ul role="list" className="mt-6 space-y-4">
@@ -53,7 +51,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 4: Mis Redes Sociales */}
           <div>
             <h3 className="text-lg font-semibold leading-7 text-estetia-text">Mis Redes Sociales</h3>
             <ul role="list" className="mt-6 space-y-4">
@@ -76,7 +73,7 @@ const Footer = () => {
 
         <div className="mt-16 border-t border-estetia-text/20 pt-8 sm:mt-20 flex flex-col items-center justify-between lg:flex-row">
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm leading-6 text-estetia-text/80">
-            <a href="#" className="hover:text-estetia-accent transition-colors">Política de Privacidad</a>
+            <Link to="/politica-de-privacidad" className="hover:text-estetia-accent transition-colors">Política de Privacidad</Link>
             <a href="#" className="hover:text-estetia-accent transition-colors">Aviso Legal</a>
             <a href="#" className="hover:text-estetia-accent transition-colors">Política de Cookies</a>
             <a href="#" className="hover:text-estetia-accent transition-colors">Mapa del sitio</a>
