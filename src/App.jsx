@@ -4,9 +4,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
-    // Cambiamos a HashRouter para evitar problemas de rutas en servidores estáticos
     <Router>
-      <div className="min-h-screen bg-estetia-bg text-estetia-text font-sans selection:bg-estetia-primary selection:text-white">
+      <div className="min-h-screen bg-estetia-bg text-estetia-text font-sans">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />

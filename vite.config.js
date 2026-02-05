@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  // Usamos ruta vacía para que sea relativa y funcione en Firebase Studio y GitHub
-  base: '', 
+  // Al dejar la base vacía, funcionará tanto en el previo de Firebase como en el subdirectorio de GitHub
+  base: './', 
 })
