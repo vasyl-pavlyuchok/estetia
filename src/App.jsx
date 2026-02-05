@@ -3,11 +3,11 @@ import Home from './pages/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
-  // En GitHub Pages la web cuelga de /estetia
-  const basename = "/estetia";
+  // Usamos la forma oficial de Vite para detectar producción
+  const isProduction = import.meta.env.PROD;
 
   return (
-    <BrowserRouter basename={basename}>
+    <BrowserRouter basename={isProduction ? '/estetia' : ''}>
       <div className="min-h-screen bg-estetia-bg text-estetia-text font-sans selection:bg-estetia-primary selection:text-white">
         <Routes>
           <Route path="/" element={<Home />} />
