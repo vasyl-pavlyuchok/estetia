@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// Ya no se necesita el componente Link de react-router-dom
 import { X, Send, Sparkles, CalendarPlus, Info, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -29,7 +29,7 @@ function WhatsAppWidget({
     setIsClosing(true);
     setTimeout(() => {
       setIsOpen(false);
-    }, 300); // Coincide con la duración de la animación de salida
+    }, 300);
   };
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -38,6 +38,9 @@ function WhatsAppWidget({
   const buttonClass = `bg-green-500 text-white rounded-full p-3.5 shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform ${buttonVisibilityClass}`;
 
   const animationClass = isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up';
+
+  // Se define la ruta base directamente en la URL del enlace
+  const privacyPolicyUrl = "/estetia/politica-de-privacidad.html";
 
   return (
     <>
@@ -62,6 +65,7 @@ function WhatsAppWidget({
             </header>
 
             <main className="p-5 flex flex-col gap-4 bg-slate-200">
+              {/* ... Contenido del main ... */}
               <div className="bg-white p-4 rounded-xl shadow-sm self-start w-full">
                 <h4 className="font-bold text-gray-800 text-md">Tu canal directo con Estetia</h4>
                 <p className="text-gray-600 text-sm mt-1">
@@ -95,15 +99,15 @@ function WhatsAppWidget({
                     className="mt-1 h-4 w-4 rounded border-gray-400 text-estetia-accent focus:ring-estetia-accent"
                  />
                  <label htmlFor="privacy-check" className="text-xs text-gray-700">
-                    Acepto la 
-                    <Link 
-                      to="/politica-de-privacidad" 
+                    Acepto la {/* AHORA ES UNA ETIQUETA <a> NORMAL */}
+                    <a 
+                      href={privacyPolicyUrl}
+                      target="_blank" 
+                      rel="noopener noreferrer" 
                       className="underline hover:text-estetia-accent"
-                      onClick={closeChat} // <-- CAMBIO CLAVE: Cerrar el chat al hacer clic
-                      // Se eliminó target="_blank" para usar el router en la misma pestaña
                     >
                       Política de Privacidad
-                    </Link> y el tratamiento de mis datos.
+                    </a> y el tratamiento de mis datos.
                     <span className="block mt-2 text-gray-600/90">
                       <strong className="block mb-1 text-gray-700">Información básica sobre protección de datos:</strong>
                       <strong>Responsable:</strong> Estetia.<br/>
