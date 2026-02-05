@@ -13,23 +13,14 @@ function Navbar({ openChat }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isHomePage = location.pathname === '/';
+  // Ya no es necesario diferenciar isHomePage para los Links de navegación interna
+  // Ya que todos usarán <Link to="/#id"> y el scroll se manejará globalmente en App.jsx
 
   const NavLinks = () => (
     <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-      {isHomePage ? (
-        <>
-          <a href="#filosofia" className="hover:text-estetia-primary transition-colors">La Clínica</a>
-          <a href="#tratamientos" className="hover:text-estetia-primary transition-colors">Tratamientos</a>
-          <a href="#equipo" className="hover:text-estetia-primary transition-colors">Dra. Ana Pérez</a>
-        </>
-      ) : (
-        <>
-          <Link to="/#filosofia" className="hover:text-estetia-primary transition-colors">La Clínica</Link>
-          <Link to="/#tratamientos" className="hover:text-estetia-primary transition-colors">Tratamientos</Link>
-          <Link to="/#equipo" className="hover:text-estetia-primary transition-colors">Dra. Ana Pérez</Link>
-        </>
-      )}
+      <Link to="/#filosofia" className="hover:text-estetia-primary transition-colors">La Clínica</Link>
+      <Link to="/#tratamientos" className="hover:text-estetia-primary transition-colors">Tratamientos</Link>
+      <Link to="/#equipo" className="hover:text-estetia-primary transition-colors">Dra. Ana Pérez</Link>
       <button 
         onClick={openChat}
         className="bg-estetia-accent text-white px-5 py-2.5 rounded-full hover:bg-estetia-primary transition-colors shadow-lg"

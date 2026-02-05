@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 const PrivacyPolicy = () => {
   return (
     <div className="bg-estetia-bg">
-      <Navbar />
+      {/* <Navbar /> -- Navbar se renderiza en App.jsx */}
       <main className="mx-auto max-w-4xl px-6 lg:px-8 py-24 sm:py-32">
         <div className="prose prose-lg lg:prose-xl max-w-none text-gray-700">
           <h1 className="text-3xl font-bold tracking-tight text-estetia-dark sm:text-4xl">Política de Privacidad</h1>
@@ -70,11 +70,11 @@ const PrivacyPolicy = () => {
           </blockquote>
           
           <h2 className="text-2xl font-bold tracking-tight text-estetia-dark sm:text-3xl mt-12 mb-6">6. Destinatarios y Transferencias (Flujos de Datos)</h2>
-          <p>Para garantizar el correcto funcionamiento de nuestras automatizaciones y la seguridad del dato, Estetia utiliza proveedores de infraestructura de primer nivel que cumplen estrictamente con los estándares europeos:</p>
+          <p>Para que nuestras automatizaciones funcionen, los datos pueden fluir a través de:</p>
           <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Infraestructura de Automatización (n8n):</strong> Utilizamos la plataforma <strong>n8n (n8n Cloud / Self-hosted)</strong> como motor de flujos de datos. Los servidores están ubicados exclusivamente dentro del <strong>Espacio Económico Europeo (Región: Frankfurt, Alemania)</strong>. Esta plataforma garantiza el cifrado de datos en tránsito y en reposo, cumpliendo con los requisitos del RGPD para el tratamiento de categorías especiales de datos (salud).</li>
-              <li><strong>Mensajería (WhatsApp Business API):</strong> Los datos fluyen a través de la infraestructura de Meta (WhatsApp) mediante el uso de la API oficial para empresas, lo que garantiza el cifrado de extremo a extremo y el cumplimiento de las cláusulas contractuales tipo aprobadas por la Comisión Europea.</li>
-              <li><strong>Inteligencia Artificial:</strong> En caso de utilizar modelos de procesamiento de lenguaje, se emplean conexiones cifradas mediante API con políticas de "Zero Data Retention" para asegurar que los datos de los pacientes no sean almacenados ni utilizados para el entrenamiento de modelos externos.</li>
+              <li><strong>n8n (Self-Hosted):</strong> Nuestra infraestructura de automatización está alojada en servidores dentro de la <strong>Unión Europea (España/Alemania)</strong>, garantizando que el dato nunca sale del espacio económico europeo.</li>
+              <li><strong>Modelos de IA (OpenAI API/Anthropic):</strong> En caso de usar modelos externos, se utilizan versiones <strong>Enterprise</strong> que garantizan la no utilización de sus datos personales para el entrenamiento de modelos globales ("Zero Data Retention").</li>
+              <li><strong>Centros Médicos Colaboradores:</strong> Los datos se ceden únicamente a la clínica seleccionada por el usuario.</li>
           </ul>
 
           <h2 className="text-2xl font-bold tracking-tight text-estetia-dark sm:text-3xl mt-12 mb-6">7. Plazo de Conservación</h2>
@@ -82,10 +82,10 @@ const PrivacyPolicy = () => {
 
           <h2 className="text-2xl font-bold tracking-tight text-estetia-dark sm:text-3xl mt-12 mb-6">8. Sus Derechos</h2>
           <p>Usted tiene derecho a: <strong>Acceso, Rectificación, Supresión (Olvido), Limitación, Portabilidad y Oposición.</strong></p>
-          <p>Para ejercerlos, envíe un email a <a href="mailto:privacy@estetia.com" className="text-estetia-primary hover:underline">privacy@estetia.com</a> adjuntando copia de su DNI o documento equivalente. También tiene derecho a retirar su consentimiento en cualquier momento para el uso de la IA en su atención.</p>
+          <p>Para ejercerlos, envíe un email a 📩 <a href="mailto:privacidad@estetia.io" className="text-estetia-primary hover:underline">privacidad@estetia.io</a> adjuntando copia de su DNI o documento equivalente. También tiene derecho a retirar su consentimiento en cualquier momento para el uso de la IA en su atención.</p>
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> -- Eliminamos este Footer, ya se renderiza en App.jsx */}
     </div>
   );
 };

@@ -23,7 +23,7 @@ const WhyChooseUs = () => {
   const cardStyle = "bg-estetia-primary/[0.8] backdrop-blur-lg border border-white/10 shadow-2xl rounded-3xl p-8 h-full transition-all duration-500 hover:shadow-estetia-primary/40 hover:-translate-y-2 flex flex-col items-center text-center";
 
   return (
-    <div className="py-24 sm:py-32">
+    <div id="filosofia" className="py-24 sm:py-32"> {/* <-- CAMBIO AQUI: Añadimos el id="filosofia" */} 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-estetia-primary">PROTOCOLO ESTETIA</h2>

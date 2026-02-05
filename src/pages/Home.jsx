@@ -1,7 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { useInView } from 'react-intersection-observer';
-import WhatsAppWidget from '../components/WhatsAppWidget';
-import Navbar from '../components/Navbar';
+import React from 'react';
+// Los hooks de estado (useState, useInView) y el WhatsAppWidget ya no son necesarios aquí
 import Hero from '../components/Hero';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonials from '../components/Testimonials';
@@ -9,21 +7,13 @@ import Treatments from '../components/Treatments';
 import Faq from '../components/Faq';
 import AboutUs from '../components/AboutUs';
 import CTA from '../components/CTA';
-import Footer from '../components/Footer';
 
-function Home() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const openChat = () => setIsChatOpen(true);
-
-  const { ref: ctaRef, inView: isCTAInView } = useInView({
-    threshold: 0.3,
-  });
-
-  const phoneNumber = '447452339418';
-
+// La página Home ahora es un componente más "simple".
+// Recibe las funciones que necesita (props) desde su componente padre, App.jsx.
+function Home({ openChat, ctaRef }) {
   return (
     <>
-      <Navbar openChat={openChat} />
+      {/* Pasa la función openChat a los componentes que la necesiten */}
       <Hero openChat={openChat} />
       <WhyChooseUs />
       <AboutUs openChat={openChat} />
@@ -31,18 +21,10 @@ function Home() {
       <Testimonials />
       <Faq />
 
+      {/* La referencia para detectar el CTA en el viewport se pasa aquí */}
       <div ref={ctaRef}>
         <CTA openChat={openChat} />
       </div>
-      
-      <Footer />
-
-      <WhatsAppWidget 
-        isOpen={isChatOpen} 
-        setIsOpen={setIsChatOpen} 
-        isCTAInView={isCTAInView}
-        phoneNumber={phoneNumber}
-      />
     </>
   );
 }
