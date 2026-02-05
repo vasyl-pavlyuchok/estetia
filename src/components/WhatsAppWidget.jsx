@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // <-- 1. Importar el componente Link
+import { Link } from 'react-router-dom';
 import { X, Send, Sparkles, CalendarPlus, Info, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -29,7 +29,7 @@ function WhatsAppWidget({
     setIsClosing(true);
     setTimeout(() => {
       setIsOpen(false);
-    }, 300);
+    }, 300); // Coincide con la duración de la animación de salida
   };
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -95,12 +95,12 @@ function WhatsAppWidget({
                     className="mt-1 h-4 w-4 rounded border-gray-400 text-estetia-accent focus:ring-estetia-accent"
                  />
                  <label htmlFor="privacy-check" className="text-xs text-gray-700">
-                    Acepto la {/* <-- 2. Reemplazar <a> con <Link> */}
+                    Acepto la 
                     <Link 
                       to="/politica-de-privacidad" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
                       className="underline hover:text-estetia-accent"
+                      onClick={closeChat} // <-- CAMBIO CLAVE: Cerrar el chat al hacer clic
+                      // Se eliminó target="_blank" para usar el router en la misma pestaña
                     >
                       Política de Privacidad
                     </Link> y el tratamiento de mis datos.
