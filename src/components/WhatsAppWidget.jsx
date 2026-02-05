@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // <-- 1. Importar el componente Link
 import { X, Send, Sparkles, CalendarPlus, Info, MessageCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -37,10 +38,6 @@ function WhatsAppWidget({
   const buttonClass = `bg-green-500 text-white rounded-full p-3.5 shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform ${buttonVisibilityClass}`;
 
   const animationClass = isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up';
-
-  // Definimos la ruta base para la política de privacidad
-  const appBasename = "/estetia"; 
-  const privacyPolicyUrl = `${appBasename}/politica-de-privacidad`; // <-- Eliminamos el ancla aquí, porque react-router-dom lo maneja mejor en el <Link>
 
   return (
     <>
@@ -98,7 +95,15 @@ function WhatsAppWidget({
                     className="mt-1 h-4 w-4 rounded border-gray-400 text-estetia-accent focus:ring-estetia-accent"
                  />
                  <label htmlFor="privacy-check" className="text-xs text-gray-700">
-                    Acepto la <a href={privacyPolicyUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-estetia-accent">Política de Privacidad</a> y el tratamiento de mis datos.
+                    Acepto la {/* <-- 2. Reemplazar <a> con <Link> */}
+                    <Link 
+                      to="/politica-de-privacidad" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="underline hover:text-estetia-accent"
+                    >
+                      Política de Privacidad
+                    </Link> y el tratamiento de mis datos.
                     <span className="block mt-2 text-gray-600/90">
                       <strong className="block mb-1 text-gray-700">Información básica sobre protección de datos:</strong>
                       <strong>Responsable:</strong> Estetia.<br/>
