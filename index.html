@@ -5,9 +5,41 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>myapp</title>
+    <!-- CSS anterior eliminado, no era efectivo -->
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Scripts de Zoho -->
+    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
+    <script id="zsiqscript" src="https://salesiq.zohopublic.eu/widget?wc=siqc956af64ba2e649249bdf10206ac90f3df53d88ca8dd8261097c9292ed4fbb54" defer></script>
+
+    <!-- Script para forzar la posición del widget a la izquierda DESPUÉS de que cargue -->
+    <script>
+      const forceZohoPosition = () => {
+        const widget = document.getElementById('siqwidget');
+        if (widget) {
+          widget.style.setProperty('left', '15px', 'important');
+          widget.style.setProperty('right', 'auto', 'important');
+        }
+      };
+
+      const observer = new MutationObserver((mutations, obs) => {
+        const widget = document.getElementById('siqwidget');
+        if (widget) {
+          forceZohoPosition();
+          // Una vez que lo encontramos y lo movemos, podemos dejar de observar
+          obs.disconnect(); 
+        }
+      });
+
+      // Observamos el body para detectar cuando Zoho añada el widget
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    </script>
+
   </body>
 </html>
